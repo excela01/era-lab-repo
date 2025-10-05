@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ERA-Lab Data Repository</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>ERA-Lab Data Repository</h1>
+        <p class="tagline">Open-access datasets, validated methods, and project outputs from ERA-Lab.</p>
+      </div>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search datasets..." />
+        <button id="btnExport" title="Export repository">Export</button>
+        <button id="btnImport" title="Import repository">Import</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="left">
+        <h2>Datasets</h2>
+        <div id="datasets" class="grid"></div>
+      </section>
+
+      <aside class="right">
+        <div class="upload-card">
+          <h3>Upload Dataset</h3>
+          <form id="uploadForm">
+            <label>Title
+              <input name="title" required />
+            </label>
+            <label>Category
+              <input name="category" required />
+            </label>
+            <label>Authors
+              <input name="authors" required />
+            </label>
+            <label>Year
+              <input name="year" type="number" min="1900" max="2100" required />
+            </label>
+            <label>Summary
+              <textarea name="summary" rows="3"></textarea>
+            </label>
+            <label>File (PDF / CSV / ZIP)
+              <input name="file" type="file" />
+            </label>
+            <div class="form-actions">
+              <button type="submit">Upload</button>
+              <button type="button" id="clearLocal">Clear Local Data</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="info">
+          <h4>Notes</h4>
+          <ul>
+            <li>Uploaded files are stored locally in your browser (not public).</li>
+            <li>To make uploads accessible to others, set up backend storage (S3, Google Drive, or Netlify Functions).</li>
+            <li>Use Export to save a JSON backup of the repository.</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 ERA-Lab | Open Research, Ethics & Access</p>
+    </footer>
+  </div>
+
+  <input id="importFile" type="file" accept=".json" style="display:none" />
+  <script src="app.js"></script>
+</body>
+</html>
